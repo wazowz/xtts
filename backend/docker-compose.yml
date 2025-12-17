@@ -1,0 +1,15 @@
+services:
+  xtts-api:
+    build: .
+    container_name: xtts_fastapi
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      USE_GPU: "0"
+      FP16: "0"
+      COQUI_TOS_AGREED: "1"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./generated:/app/generated
+      - ./saniya-nrl.mp3:/app/saniya-nrl.mp3
